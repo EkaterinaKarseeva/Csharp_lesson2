@@ -21,38 +21,68 @@
 
 // Задача 2
 
+        //Console.WriteLine("Введите целое число из диапазона [10, 99]:");
+        //string input = Console.ReadLine();
 
-        Console.WriteLine("Введите целое число из диапазона [10, 99]:");
+        //if (int.TryParse(input, out int number))
+        //{
+            //if (number >= 10 && number <= 99)
+            //{
+                //int maxDigit = FindMaxDigit(number);
+                //Console.WriteLine($"Наибольшая цифра в числе {number} - {maxDigit}");
+            //}
+            //else
+            //{
+                //Console.WriteLine("Ошибка. Введите целое число из диапазона [10, 99].");
+            //}
+        //}
+        //else
+        //{
+            //Console.WriteLine("Ошибка ввода. Пожалуйста, введите целое число.");
+        //}
+
+    //static int FindMaxDigit(int number)
+    //{
+        //int maxDigit = 0;
+        //while (number > 0)
+        //{
+            //int digit = number % 10;
+            //if (digit > maxDigit)
+            //{
+                //maxDigit = digit;
+            //}
+            //number /= 10;
+        //}
+        //return maxDigit;
+    //}
+
+// 4 Задача
+
+
+        Console.WriteLine("Введите натуральное число:");
         string input = Console.ReadLine();
 
-        if (int.TryParse(input, out int number))
+        if (uint.TryParse(input, out uint number))
         {
-            if (number >= 10 && number <= 99)
-            {
-                int maxDigit = FindMaxDigit(number);
-                Console.WriteLine($"Наибольшая цифра в числе {number} - {maxDigit}");
-            }
-            else
-            {
-                Console.WriteLine("Ошибка. Введите целое число из диапазона [10, 99].");
-            }
+            Console.Write("Цифры числа в обратном порядке: ");
+            DisplayDigitsReverse(number);
         }
         else
         {
-            Console.WriteLine("Ошибка ввода. Пожалуйста, введите целое число.");
+            Console.WriteLine("Ошибка ввода. Пожалуйста, введите натуральное число.");
         }
 
-    static int FindMaxDigit(int number)
+    static void DisplayDigitsReverse(uint number)
     {
-        int maxDigit = 0;
         while (number > 0)
         {
-            int digit = number % 10;
-            if (digit > maxDigit)
+            uint digit = number % 10;
+            Console.Write(digit);
+            if (number >= 10)
             {
-                maxDigit = digit;
+                Console.Write(",");
             }
             number /= 10;
         }
-        return maxDigit;
+        Console.WriteLine();
     }
