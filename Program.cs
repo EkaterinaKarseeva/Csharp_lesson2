@@ -59,30 +59,76 @@
 // 4 Задача
 
 
-        Console.WriteLine("Введите натуральное число:");
-        string input = Console.ReadLine();
+        //Console.WriteLine("Введите натуральное число:");
+        //string input = Console.ReadLine();
 
-        if (uint.TryParse(input, out uint number))
+        //if (uint.TryParse(input, out uint number))
+        //{
+            //Console.Write("Цифры числа в обратном порядке: ");
+            //DisplayDigitsReverse(number);
+        //}
+        //else
+        //{
+            //Console.WriteLine("Ошибка ввода. Пожалуйста, введите натуральное число.");
+        //}
+
+    //static void DisplayDigitsReverse(uint number)
+    //{
+        //while (number > 0)
+        //{
+            //uint digit = number % 10;
+            //Console.Write(digit);
+            //if (number >= 10)
+            //{
+                //Console.Write(",");
+            //}
+            //number /= 10;
+        //}
+        //Console.WriteLine();
+    //}
+
+   
+    {
+        Console.WriteLine("Введите координату X:");
+        string inputX = Console.ReadLine();
+
+        Console.WriteLine("Введите координату Y:");
+        string inputY = Console.ReadLine();
+
+        if (double.TryParse(inputX, out double x) && double.TryParse(inputY, out double y))
         {
-            Console.Write("Цифры числа в обратном порядке: ");
-            DisplayDigitsReverse(number);
+            if (x != 0 && y != 0)
+            {
+                int quadrant = GetQuadrant(x, y);
+                Console.WriteLine($"Точка с координатами ({x}, {y}) находится в {quadrant} координатной четверти");
+            }
+            else
+            {
+                Console.WriteLine("Ошибка. Пожалуйста, убедитесь, что X и Y не равны нулю.");
+            }
         }
         else
         {
-            Console.WriteLine("Ошибка ввода. Пожалуйста, введите натуральное число.");
+            Console.WriteLine("Ошибка ввода. Пожалуйста, введите числовое значение для X и Y.");
         }
+    }
 
-    static void DisplayDigitsReverse(uint number)
+    static int GetQuadrant(double x, double y)
     {
-        while (number > 0)
+        if (x > 0 && y > 0)
         {
-            uint digit = number % 10;
-            Console.Write(digit);
-            if (number >= 10)
-            {
-                Console.Write(",");
-            }
-            number /= 10;
+            return 1;
         }
-        Console.WriteLine();
+        else if (x < 0 && y > 0)
+        {
+            return 2;
+        }
+        else if (x < 0 && y < 0)
+        {
+            return 3;
+        }
+        else
+        {
+            return 4;
+        }
     }
